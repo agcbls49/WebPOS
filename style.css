@@ -1,0 +1,37 @@
+* {
+    font-family: "Inter", serif;
+    margin-top: 5%;
+    margin-left: 50%;
+    margin-right: 10%;
+}
+
+.title_bar {
+    color: white;
+    font-size: x-large;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 3% 15% 0% 10%;
+}
+
+.order_list {
+    position: absolute;
+
+    justify-content: left;
+    height: 50px;
+    font-weight: 50px;
+    background-color: green;
+}
+
+.table {
+    justify-content: left;
+    height: 50px;
+    font-weight: 50px;
+    color: green;
+}
+
+.button:hover {
+    color: black;
+    background-color: hsl(171, 100%, 41%);
+    border-color: black;
+}
