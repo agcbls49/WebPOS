@@ -16,53 +16,84 @@
     <title>WebPOS</title>
 </head>
 <body>
-    <!-- Title Bar -->
     <div class="title_bar">
         <h1>WebPOS - Fast Food Point of Sale System</h1>
     </div>
-    <!-- Order List -->
-    <div class="order_list">
-        <table class="table">
+
+    <div class="main-content">
+    <!-- Order Table -->
+        <div class="order_list">
+            <table class="table">
             <thead>
-                <tr>Order_ID</tr>
-                <tr>Item</tr>
-                <tr>Quantity</tr>
-                <tr>Price</tr>
+                <tr>
+                <th>Order_ID</th>
+                <th>Item</th>
+                <th>Quantity</th>
+                <th>Price</th>
+                <th>Actions</th>
+                </tr>
             </thead>
             <tbody>
-                <td>3</td>
-                <td>Small Fries</td>
-                <td>2</td>
-                <td>9.98</td>
-                <td>
-                    <button class="updateBtn"><a href="update">Update</a></button>
-                    <button class="deleteBtn"><a href="delete">Delete</a></button>
-                </td>
+                <!-- Server Fetch Code -->
+                <?php
+                $servername = "localhost";
+                $username = "root";
+                $password = "";
+                $database = "webpos";
+
+                $connection = new mysqli($servername, $username, $password, $database);
+
+                // connect to mysql server
+                if($connection->connect_error){
+                    die("Connection Failed: " . $connection->connect_error);
+                }
+
+                $sql = "SELECT * FROM orderlisttable";
+                $result = $connection->query($sql);
+
+                if(!$result){
+                    die("Invalid Query: " . $connection->error);
+                }
+
+                while($row = $result->fetch_assoc()){
+                    echo'<tr>
+                        <td>' . $row["ID"] . '</td>
+                        <td>' . $row["Item"] . '</td>
+                        <td>' . $row["Quantity"] . '</td>
+                        <td>' . $row["Price"] . '</td>
+                        <td>
+                            <div class="buttons is-right is-fullwidth">
+                                <button class="button is-medium is-warning action-button">Update</button>
+                                <button class="button is-medium is-danger action-button">Delete</button>
+                            </div>
+                            </td>
+                    </tr>';
+                }
+                ?>
             </tbody>
-        </table>
+            </table>
+        </div>
+
+        <!-- Menu Buttons -->
+        <div class="btn_grid is-size-3">
+            <div class="cell"><button class="button is-size-5">Hamburger</button></div>
+            <div class="cell"><button class="button is-size-5">Cheese Burger</button></div>
+            <div class="cell"><button class="button is-size-5">Fish Fillet Sandwich</button></div>
+            <div class="cell"><button class="button is-size-5">Chicken Sandwich</button></div>
+            <div class="cell"><button class="button is-size-5">Spicy Veggie Wrap</button></div>
+            <div class="cell"><button class="button is-size-5">Chicken Wrap</button></div>
+            <div class="cell"><button class="button is-size-5">Chicken Salad Wrap</button></div>
+            <div class="cell"><button class="button is-size-5">Small Fries</button></div>
+            <div class="cell"><button class="button is-size-5">Medium Fries</button></div>
+            <div class="cell"><button class="button is-size-5">Large Fries</button></div>
+            <div class="cell"><button class="button is-size-5">Soft Serve</button></div>
+            <div class="cell"><button class="button is-size-5">Apple Pie</button></div>
+            <div class="cell"><button class="button is-size-5">Sundae</button></div>
+            <div class="cell"><button class="button is-size-5">Coca Cola</button></div>
+            <div class="cell"><button class="button is-size-5">Sprite</button></div>
+        </div>
     </div>
-    <!-- Order buttons -->
-    <div class="btn_grid grid has-text-white">
-        <!-- Sandwiches -->
-        <div class="cell"><button class="button">Hamburger</button></div>
-        <div class="cell"><button class="button">Cheese Burger</button></div>
-        <div class="cell"><button class="button">Fish Fillet Sandwich</button></div>
-        <div class="cell"><button class="button">Chicken Sandwich</button></div>
-        <div class="cell"><button class="button">Spicy Veggie Wrap</button></div>
-        <div class="cell"><button class="button">Chicken Wrap</button></div>
-        <div class="cell"><button class="button">Chicken Salad Wrap</button></div>
-        <!-- French Fries -->
-        <div class="cell"><button class="button">Small Fries</button></div>
-        <div class="cell"><button class="button">Medium Fries</button></div>
-        <div class="cell"><button class="button">Large Fries</button></div>
-        <!-- Desserts -->
-        <div class="cell"><button class="button">Soft Serve</button></div>
-        <div class="cell"><button class="button">Apple Pie</button></div>
-        <div class="cell"><button class="button">Sundae</button></div>
-        <!-- Drinks -->
-        <div class="cell"><button class="button">Coca Cola</button></div>
-        <div class="cell"><button class="button">Sprite</button></div>
-    </div>
+
     
 </body>
 </html>

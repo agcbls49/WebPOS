@@ -1,21 +1,90 @@
-* {
-    font-family: "Inter", serif;
-    margin-top: 5%;
-    margin-left: 50%;
-    margin-right: 10%;
+body {
+    margin: 0;
+    padding: 0;
+    font-family: "Inter", sans-serif;
+    color: white;
+    font-size: 16px;
 }
 
-.title_bar {
-    color: white;
-    font-size: x-large;
+/* Center container */
+.main-content {
     display: flex;
     justify-content: center;
-    align-items: center;
-    margin: 3% 15% 0% 10%;
+    align-items: flex-start;
+    gap: 2rem;
+    max-width: 1200px;
+    margin: 2rem auto;
+    padding: 0 1rem;
 }
 
-.button:hover {
+/* Table container */
+.order_list {
+    flex: 0 0 700px; /* fixed width to prevent squeezing */
+}
+
+.order_list .table {
+    width: 100%;
+    background-color: white;
     color: black;
+    font-size: 1rem;
+}
+
+/* Button grid container */
+.btn_grid {
+    flex: 0 0 420px; /* fixed width for consistent button sizing */
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 12px;
+}
+
+/* POS buttons */
+.btn_grid .button {
+    font-weight: bold; /* bold always to prevent stretch on hover */
+    white-space: nowrap; /* prevents multi-line overflow */
+    width: 100%;
+    box-sizing: border-box;
+    font-size: 1rem;
+    text-align: center;
+    padding: 0.5rem 0.75rem;
+    transition: background-color 0.2s ease, color 0.2s ease;
+    border: 1px solid transparent;
+}
+
+/* POS button hover */
+.btn_grid .button:hover {
     background-color: hsl(171, 100%, 41%);
-    border-color: black;
+    color: black;
+    border: 1px solid black;
+}
+
+/* Title */
+.title_bar {
+    text-align: center;
+    padding: 1.5rem;
+    font-size: 1.5rem;
+}
+
+.buttons.is-fullwidth {
+    display: flex;
+    justify-content: space-between;
+    gap: 0.5rem; /* adds spacing between update and delete */
+    width: 100%;
+}
+
+/* Update/Delete buttons */
+.action-button {
+    width: 100%; 
+    flex: 1 1 0;
+    padding: 0.4rem 0.75rem;
+    white-space: nowrap;
+    box-sizing: border-box;
+    font-weight: bold; /* bold always to prevent hover growth */
+    border: 1px solid transparent;
+    transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+.action-button:hover {
+    background-color: hsl(0, 0%, 0%);
+    color: white;
+    border: 1px solid black;
 }
