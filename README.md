@@ -1,7 +1,10 @@
+# WebPOS
+A Web based Point of Sale System made using HTML, CSS, Javascript, MySQL and PHP
+
 # Setup
-Start server:
-gitbash to htdocs directory and inside folder type php -S localhost:4000
-
-For PHP Admin page:
-http://localhost:80/phpmyadmin/ for xampp (enable apache and mysql first)
-
+Start the PHP server:<br>
+gitbash to htdocs directory and inside project folder type <br>
+**php -S localhost:4000**
+<br><br>
+For PHP Admin page:<br>
+**http://localhost:80/phpmyadmin/** <br> for xampp (enable apache and mysql first)

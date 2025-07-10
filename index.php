@@ -29,6 +29,16 @@
                 <tr>Quantity</tr>
                 <tr>Price</tr>
             </thead>
+            <tbody>
+                <td>3</td>
+                <td>Small Fries</td>
+                <td>2</td>
+                <td>9.98</td>
+                <td>
+                    <button class="updateBtn"><a href="update">Update</a></button>
+                    <button class="deleteBtn"><a href="delete">Delete</a></button>
+                </td>
+            </tbody>
         </table>
     </div>
     <!-- Order buttons -->

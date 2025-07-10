@@ -14,22 +14,6 @@
     margin: 3% 15% 0% 10%;
 }
 
-.order_list {
-    position: absolute;
-
-    justify-content: left;
-    height: 50px;
-    font-weight: 50px;
-    background-color: green;
-}
-
-.table {
-    justify-content: left;
-    height: 50px;
-    font-weight: 50px;
-    color: green;
-}
-
 .button:hover {
     color: black;
     background-color: hsl(171, 100%, 41%);
